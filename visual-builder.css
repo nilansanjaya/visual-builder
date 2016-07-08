@@ -1,0 +1,11 @@
+#app_container{
+    background-color: #ececec;
+}
+
+.object{
+    margin: 0 auto;
+    height: 100px;
+    width: 90%;
+    background-color: lightblue;
+    margin: 10px auto 10px auto;
+}
