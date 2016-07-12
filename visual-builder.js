@@ -35,7 +35,7 @@ function toggleSource(){
         current_editor = 1;
     }else if(current_editor==1){
         $(app_container).html( code_mirror_instance.doc.getValue() );
-        initSnippets();
+        //initSnippets();
         current_editor = 0;
     }
 
