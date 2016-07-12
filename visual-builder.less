@@ -1,0 +1,60 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  overflow: scroll;
+}
+
+#app_container {
+  background-color: #f5f5f5;
+  overflow: scroll;
+}
+
+.CodeMirror{
+  display: none;
+}
+
+.object {
+  margin: 0 auto;
+  height: auto;
+  //background-color: lightblue;
+  margin: 10px auto 10px auto;
+  padding:0px 10px 0px 10px;
+  &:hover {
+    background-color: #8ae1e6;
+    &:before {
+      content: '\2725';
+      float: right;
+      font-size: 18px;
+      font-family: sans-serif;
+      color: black;
+      cursor: pointer;
+    }
+  }
+}
+[contenteditable] {
+  &:hover{
+    &:after {
+      content: ' - Edit';
+      font-size: 12px;
+      font-family: sans-serif;
+      color: black;
+      cursor: pointer;
+    }
+  }
+}
+
+.theme_1{
+  font-family: "Lato";
+
+  div[snippet-type="header"]{
+
+  }
+
+  div[snippet-type="paragraph"]{
+
+  }
+
+}

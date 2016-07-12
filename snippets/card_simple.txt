@@ -1,0 +1,5 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-content-inner" contenteditable>This is simple card with plain text. But card could contain its own header, footer, list view, image, and any elements inside.</div>
+  </div>
+</div>
