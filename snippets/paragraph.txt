@@ -1,4 +1,1 @@
-<p contenteditable>
-Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-Lorem Ipsum Lorem Ipsum
-</p>
+<p contenteditable>Sample paragraph Text</p>
