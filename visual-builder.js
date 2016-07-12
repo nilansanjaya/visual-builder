@@ -1,16 +1,12 @@
 var app_container = "#app_container";
-var app_width = '800px';
-var app_height = '1000px';
+var app_width = '400px';
+var app_height = '600px';
 
 var snippet_list = [
-    {
-        "name": "Header",
-        "id": "header"
-    },
-    {
-        "name": "Paragraph",
-        "id": "paragraph"
-    }
+    {"name": "Header", "id": "header" },
+    {"name": "Paragraph", "id": "paragraph"},
+    {"name": "Simple Card", "id": "card_simple"},
+    {"name": "Card with Header and Footer", "id": "card_advance"}
 ];
 
 $(document).ready(function(){
