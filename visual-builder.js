@@ -1,8 +1,10 @@
 var app_container = "#app_container";
-var source_container = "#raw_source";
+var source_container = "raw_source";
+var codemirror_ele = ".CodeMirror";
 var app_width = '400px';
 var app_height = '600px';
 var current_editor = 0;
+var code_mirror_instance;
 
 var snippet_list = [
     {"name": "Header", "id": "header" },
@@ -12,25 +14,33 @@ var snippet_list = [
 ];
 
 $(document).ready(function(){
+
     initApp();
     initSnippets();
 
     $( "#app_container" ).sortable({cancel: ':input,button,[contenteditable]', placeholder: "ui-state-highlight", forcePlaceholderSize: true});
+
+    code_mirror_instance = CodeMirror.fromTextArea(document.getElementById(source_container), {
+        lineNumbers: true,
+        mode: "xml",
+        htmlMode: true,
+    });
 
 });
 
 function toggleSource(){
 
     if(current_editor==0){
-        $(source_container).val( $(app_container).html() );
+        code_mirror_instance.doc.setValue( $(app_container).html() );
         current_editor = 1;
     }else if(current_editor==1){
-        $(app_container).html( $(source_container).val() );
+        $(app_container).html( code_mirror_instance.doc.getValue() );
+        initSnippets();
         current_editor = 0;
     }
 
     $(app_container).toggle();
-    $(source_container).toggle();
+    $(codemirror_ele).toggle();
 
 }
 
@@ -41,10 +51,10 @@ function initApp(){
         minHeight: app_height,
     });
 
-    $(source_container).css({
+    /*$(source_container).css({
         width: app_width,
         minHeight: app_height,
-    });
+    });*/
 
     $.each( snippet_list, function( key, value ) {
         $("#snippet_list").append("<option value='"+value.id+"'>"+value.name+"</option>")
