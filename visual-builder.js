@@ -1,6 +1,8 @@
 var app_container = "#app_container";
+var source_container = "#raw_source";
 var app_width = '400px';
 var app_height = '600px';
+var current_editor = 0;
 
 var snippet_list = [
     {"name": "Header", "id": "header" },
@@ -13,13 +15,33 @@ $(document).ready(function(){
     initApp();
     initSnippets();
 
-    $( "#app_container" ).sortable({cancel: ':input,button,[contenteditable]'});
+    $( "#app_container" ).sortable({cancel: ':input,button,[contenteditable]', placeholder: "ui-state-highlight", forcePlaceholderSize: true});
 
 });
+
+function toggleSource(){
+
+    if(current_editor==0){
+        $(source_container).val( $(app_container).html() );
+        current_editor = 1;
+    }else if(current_editor==1){
+        $(app_container).html( $(source_container).val() );
+        current_editor = 0;
+    }
+
+    $(app_container).toggle();
+    $(source_container).toggle();
+
+}
 
 function initApp(){
 
     $(app_container).css({
+        width: app_width,
+        minHeight: app_height,
+    });
+
+    $(source_container).css({
         width: app_width,
         minHeight: app_height,
     });
