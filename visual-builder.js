@@ -16,7 +16,7 @@ var snippet_list = [
 $(document).ready(function(){
 
     initApp();
-    initSnippets();
+    //initSnippets();
 
     $( "#app_container" ).sortable({cancel: ':input,button,[contenteditable]', placeholder: "ui-state-highlight", forcePlaceholderSize: true});
 
