@@ -42,6 +42,8 @@ function toggleSource(){
     $(app_container).toggle();
     $(codemirror_ele).toggle();
 
+    code_mirror_instance.refresh();
+
 }
 
 function initApp(){
