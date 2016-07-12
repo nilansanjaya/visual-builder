@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
+
+<link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet" type="text/css">
+
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <link href="visual-builder.less" rel="stylesheet/less" type="text/css" />
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.6.1/less.min.js"></script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="visual-builder.js"></script>
 
-<div id="app_container">
+
+<div id="app_container" class="theme_1">
 
     <div class="object" snippet-type="header"></div>
     <div class="object" snippet-type="paragraph"></div>
 
 </div>
+
+<select multiple id="snippet_list"></select>
+<button onclick="addSnippet()">Add</button>
 
 </html>

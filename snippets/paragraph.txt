@@ -1,4 +1,4 @@
-<p>
+<p contenteditable>
 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
 Lorem Ipsum Lorem Ipsum
 </p>

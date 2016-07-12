@@ -1,11 +1,37 @@
-#app_container{
+#app_container {
   background-color: #ececec;
 }
 
-.object{
+.object {
   margin: 0 auto;
-  height: 100px;
-  width: 90%;
+  height: auto;
   background-color: lightblue;
   margin: 10px auto 10px auto;
+  padding:10px;
+  &:hover {
+    background-color: #8ae1e6;
+  }
+}
+[contenteditable] {
+  &:hover{
+    &:after {
+      content: ' - Edit';
+      font-size: 12px;
+      font-family: sans-serif;
+      color: black;
+      cursor: pointer;
+    }
+  }
+}
+
+.theme_1{
+  font-family: "Lato";
+}
+
+div[snippet-type="header"]{
+
+}
+
+div[snippet-type="paragraph"]{
+
 }
