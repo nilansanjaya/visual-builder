@@ -15,16 +15,18 @@ var snippet_list = [
 
 $(document).ready(function(){
 
-    initApp();
-    //initSnippets();
-
-    $( "#app_container" ).sortable({cancel: ':input,button,[contenteditable]', placeholder: "ui-state-highlight", forcePlaceholderSize: true});
-
     code_mirror_instance = CodeMirror.fromTextArea(document.getElementById(source_container), {
         lineNumbers: true,
         mode: "xml",
         htmlMode: true,
+        lineWrapping: true,
+        matchTags: {bothTags: true},
     });
+
+    initApp();
+    //initSnippets();
+
+    $( "#app_container" ).sortable({cancel: ':input,button,[contenteditable]', placeholder: "ui-state-highlight", forcePlaceholderSize: true});
 
 });
 
@@ -57,6 +59,8 @@ function initApp(){
         width: app_width,
         minHeight: app_height,
     });*/
+
+    code_mirror_instance.setSize(app_width, app_height);
 
     $.each( snippet_list, function( key, value ) {
         $("#snippet_list").append("<option value='"+value.id+"'>"+value.name+"</option>")
