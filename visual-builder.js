@@ -55,16 +55,9 @@ function initApp(){
         minHeight: app_height,
     });
 
-    /*$(source_container).css({
-        width: app_width,
-        minHeight: app_height,
-    });*/
-
     code_mirror_instance.setSize(app_width, app_height);
 
-    $.each( snippet_list, function( key, value ) {
-        $("#snippet_list").append("<option value='"+value.id+"'>"+value.name+"</option>")
-    });
+    loadSnippetList();
 
 }
 
@@ -88,14 +81,27 @@ function loadSnippet(snippetName,element){
 
 }
 
-function addSnippet(){
+function addSnippet(btn_ele){
 
-    var snippet_id =  $("#snippet_list").val();
+    var snippet_id =  $(btn_ele).attr("data-id");
 
     var el = $('<div class="object"></div>');
 
     $(app_container).append(el).attr("snippet-type", snippet_id);
 
     loadSnippet(snippet_id, el);
+
+}
+
+function loadSnippetList(){
+
+    var snippet_template = $("#snippet_template").html();
+
+    $.each( snippet_list, function( key, value ) {
+        var $html = $('<div />',{html:snippet_template});
+        $html.find('h3').html(value.name);
+        $html.find('button').attr("data-id", value.id);
+        $("#snippet_list").append($html);
+    });
 
 }
