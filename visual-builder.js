@@ -28,6 +28,8 @@ $(document).ready(function(){
 
     $( "#app_container" ).sortable({cancel: ':input,button,[contenteditable]', placeholder: "ui-state-highlight", forcePlaceholderSize: true});
 
+    window.top.postMessage('VISUAL_BUILDER_READY', '*');
+
 });
 
 function toggleSource(){
@@ -105,3 +107,9 @@ function loadSnippetList(){
     });
 
 }
+
+window.onmessage = function(e){
+    if (e.data == 'loadContent') {
+        // Load Content from Parent to App
+    }
+};
