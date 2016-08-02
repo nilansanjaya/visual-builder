@@ -109,7 +109,8 @@ function loadSnippetList(){
 }
 
 window.onmessage = function(e){
-    if (e.data == 'loadContent') {
-        // Load Content from Parent to App
+    if (e.data.action == 'APP_LOAD_CONTENT') {
+        $(app_container).html(e.data.content);
+        code_mirror_instance.refresh();
     }
 };
