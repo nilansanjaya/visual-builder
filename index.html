@@ -35,9 +35,13 @@
 <div class="grid">
     <div class="col-1-2">
 
-        <button onclick="toggleSource()" class="margin-10">Toggle Source / Visual Editor</button>
-        <div id="app_container" class="theme_1"></div>
-        <textarea id="raw_source"></textarea>
+        <form id="app_form" action="/admin/builder/save" method="POST" target='_parent'>
+            <button type="button" onclick="toggleSource()" class="margin-10">Toggle Source / Visual Editor</button>
+            <button type="button" onclick="postContent()" class="margin-10">Save Content</button>
+            <div id="app_container" class="theme_1"></div>
+            <textarea id="raw_source" name="raw_source"></textarea>
+            <input type="hidden" id="id" name="id" />
+        </form>
 
     </div>
     <div class="col-1-2">

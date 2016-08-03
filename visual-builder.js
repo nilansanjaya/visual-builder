@@ -30,6 +30,11 @@ $(document).ready(function(){
 
     window.top.postMessage('VISUAL_BUILDER_READY', '*');
 
+    $('#app_form').submit(function() {
+        toggleSource();
+        return true;
+    });
+
 });
 
 function toggleSource(){
@@ -51,6 +56,8 @@ function toggleSource(){
 }
 
 function initApp(){
+
+    $("#id").val(getUrlParameter("id"));
 
     $(app_container).css({
         width: app_width,
@@ -108,9 +115,31 @@ function loadSnippetList(){
 
 }
 
+function postContent(){
+
+    toggleSource();
+    setTimeout(function(){ $("#app_form").submit(); },500);
+
+}
+
 window.onmessage = function(e){
     if (e.data.action == 'APP_LOAD_CONTENT') {
         $(app_container).html(e.data.content);
         code_mirror_instance.refresh();
+    }
+};
+
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
     }
 };
