@@ -24,7 +24,7 @@ $(document).ready(function(){
     });
 
     initApp();
-    //initSnippets();
+    initSnippets();
 
     $( "#app_container" ).sortable({cancel: ':input,button,[contenteditable]', placeholder: "ui-state-highlight", forcePlaceholderSize: true});
 
@@ -44,7 +44,6 @@ function toggleSource(){
         current_editor = 1;
     }else if(current_editor==1){
         $(app_container).html( code_mirror_instance.doc.getValue() );
-        //initSnippets();
         current_editor = 0;
     }
 
@@ -72,10 +71,8 @@ function initApp(){
 
 function initSnippets(){
 
-    $('div[snippet-type]').each(function(i,e){
-
-        loadSnippet($(e).attr("snippet-type"), e);
-
+    $('.object').each(function(i,e){
+        attachEvents(e);
     });
 
 }
@@ -85,6 +82,8 @@ function loadSnippet(snippetName,element){
     $.get( "snippets/"+snippetName+".txt", function( data ) {
 
         $(element).html( data );
+
+        attachEvents( element );
 
     });
 
@@ -122,9 +121,18 @@ function postContent(){
 
 }
 
+function attachEvents(snippet_element){
+
+    $(snippet_element).hover(function(){
+        console.log('hovering');
+    })
+
+}
+
 window.onmessage = function(e){
     if (e.data.action == 'APP_LOAD_CONTENT') {
         $(app_container).html(e.data.content);
+        initSnippets();
         code_mirror_instance.refresh();
     }
 };
