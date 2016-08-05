@@ -107,7 +107,7 @@ function loadSnippetList(){
 
     $.each( snippet_list, function( key, value ) {
         var $html = $('<div />',{html:snippet_template});
-        $html.find('h3').html(value.name);
+        $html.find('h4').html(value.name);
         $html.find('button').attr("data-id", value.id);
         $("#snippet_list").append($html);
     });
